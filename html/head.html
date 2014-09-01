@@ -1,0 +1,58 @@
+<!-- All text on this page is property of Michael Sartin-Tarm. (c) 2014. -->
+<!-- License is MIT, and in addition, you must give me full notice. -->
+
+<link rel="stylesheet" type="text/css" href="{{ static_url("styles.css") }}"/>
+<link rel="stylesheet" type="text/css" href="{{ static_url("player.css") }}"/>
+<link rel="stylesheet" type="text/css" href="{{ static_url("libs/jquery-ui.css") }}"/>
+<link rel="icon" type="image/x-icon" href="{{ static_url("favicon.ico") }}"/>
+
+<!-- Facebook API - See developers.facebook.com/docs/reference/plugins/like/
+  Disconnected for  now (takes too many liberties with its permissions)
+  <script async="async" id="facebook-jssdk" src="connect.facebook.net/en_IN/all.js#xfbml=1&appId=497409006971163"></script>
+-->
+
+<!-- External JS libraries -->
+<script src="{{ static_url("libs/jquery.js") }}"></script>
+<script src="{{ static_url("libs/jquery-ui.js") }}"></script>
+<script src="{{ static_url("libs/touch-punch.js") }}"></script>
+<script src="{{ static_url("libs/jsPlumb.js") }}"></script>
+
+<script async="async" src="{{ static_url("libs/gl-matrix.js") }}"></script>
+
+<!-- Global constants and functions -->
+<script async="async" src="{{ static_url("script/functions.js") }}"></script>
+<script async="async" src="{{ static_url("script/constants.js") }}"></script>
+
+<!-- GL classes -->
+<script async="async" src="{{ static_url("script/GLobject.js") }}"></script>
+<script async="async" src="{{ static_url("script/GLmatrix.js") }}"></script>
+<script async="async" src="{{ static_url("script/GLtexture.js") }}"></script>
+<script async="async" src="{{ static_url("script/GLshader.js") }}"></script>
+<script async="async" src="{{ static_url("script/GLcanvas.js") }}"></script>
+<script async="async" src="{{ static_url("script/GLsprite.js") }}"></script>
+<script async="async" src="{{ static_url("script/GLaudio.js") }}"></script>
+
+<!-- Simple objects -->
+<script async="async" src="{{ static_url("script/Cylinder.js") }}"></script>
+<script async="async" src="{{ static_url("script/Sphere.js") }}"></script>
+<script async="async" src="{{ static_url("script/Torus.js") }}"></script>
+<script async="async" src="{{ static_url("script/Disk.js") }}"></script>
+<script async="async" src="{{ static_url("script/Quad.js") }}"></script>
+
+<!-- Complex objects lv.1 -->
+<script async="async" src="{{ static_url("script/Stool.js") }}"></script>
+<script async="async" src="{{ static_url("script/SixSidedPrism.js") }}"></script>
+<script async="async" src="{{ static_url("script/ThickCyl.js") }}"></script>
+<script async="async" src="{{ static_url("script/Player.js") }}"></script>
+
+<!-- Complex objects lv.2 -->
+<script async="async" src="{{ static_url("script/StoolPyramid.js") }}"></script>
+<script async="async" src="{{ static_url("script/MazePiece.js") }}"></script>
+<script async="async" src="{{ static_url("script/Jumbotron.js") }}"></script>
+
+<!-- Environments -->
+<script async="async" src="{{ static_url("script/Skybox.js") }}"></script>
+<script async="async" src="{{ static_url("script/Cagebox.js") }}"></script>
+<script async="async" src="{{ static_url("script/Game.js") }}"></script>
+<script async="async" src="{{ static_url("script/GameLevel.js") }}"></script>
+<script src="{{ static_url("script/GameSocket.js") }}"></script>

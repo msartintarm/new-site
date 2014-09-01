@@ -1,0 +1,70 @@
+<script src="{{ static_url("libs/jquery.js") }}"></script>
+<style>
+  .error_element, .moving { 
+  }
+
+  body {
+    background: rgb(40, 40, 70);
+    overflow: hidden;
+  }
+  
+  .error_element { 
+     -webkit-transition: all 1.9s;  
+   -moz-transition: all 1.9s;  
+   -o-transition: all 1.9s;  
+   transition: all 1.9s;  
+    padding: 20px;    
+    font-size: 20px;
+    color: rgb(230, 230, 255);
+    width: 50%;
+    border-radius: 8px;
+    background-color: rgb(100, 90, 80);
+    position: relative;
+    left: 0px;
+    text-align: center;
+  }
+
+  .moving {
+    left: 400px;
+    color: rgb(255, 255, 255);
+  }
+  .moving2 {
+    background-color: rgb(80, 70, 60);
+    top: 400px;
+  }
+  .email {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    color: rgb(230, 230, 255);
+    background-color: rgb(20, 40, 30);
+    border-radius: 8px;
+    padding:10px;
+  }
+  .email:hover {
+    background-color: rgb(100, 90, 80);
+    font-weight: bold;
+  }
+</style>
+<body>
+  <div class="error_element">
+    Internal Server Error!
+  </div>
+  <div class="email">
+    Email the creator of this site.
+  </div>
+</body>
+<script>
+  var s = function() { 
+    $(".error_element").toggleClass("moving"); 
+    setTimeout(t, 800);
+  };
+  var t = function() { 
+    $(".error_element").toggleClass("moving moving2"); 
+    setTimeout(s, 800);
+  };
+  t();
+  $(".email").mousedown(function(){
+    console.error("Email not working yet.");
+  })
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html> <!-- HTML 5 -->
+<!-- All text on this page is property of Michael Sartin-Tarm. (c) 2013 - 2014. -->
+<!-- License is MIT, and in addition, you must give me full notice. -->
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>WebGL Demo</title>
+    {% include 'head.html' %}
+  </head>
+
+  <body>
+    <div id='header'>
+      <div class='one_third'>Michael</div>
+      <div class='one_third'>Vello</div>
+      <div class='one_third'>Sartin-Tarm</div>
+    </div>
+
+    <div class="game_wrapper">
+      
+      {% include 'banner.html' %}
+      {% include 'canvas.html' %}
+      {% include 'sidebar.html' %}
+
+      <div id="land_down_under" style="clear:both;">
+        <!-- It's bad code to not specify cols, but
+             width in CSS lets browsers size it properly -->
+      </div>
+
+    <!-- Put this element one tag scope higher to hide it. -->
+
+      {% include 'shaders.html' %}
+
+    <div id="footer">
+      <input type="button" value="(c) 2014 Tsunami Charles" class="floating" />
+      <div class="title" id="title4" > </div>
+    </div>
+
+    <textarea id="config-json">{% raw config.toString() %}</textarea>
+
+    <div id="fb-root"></div>
+<!--    <div class="fb-like" data-href="http://msartintarm.github.io/online_game/demo.html" data-width="450" data-show-faces="true" data-send="false" colorscheme="dark"></div>-->
+  </body>
+
+  <!-- Monitors whether the WebGL JS has been loaded. -->
+  <script src="{{ static_url("script/execute.js") }}"></script>
+</html>

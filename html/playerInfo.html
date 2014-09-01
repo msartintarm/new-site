@@ -1,0 +1,7 @@
+{% for name in players.players %}
+  <div class="html-append player-info" data-target="players-container" style="top:20px; left: 20px;" data-options="draggable">
+    <div class="device">PC</div>
+    <div class="name">{% raw name %}</div>
+    <textarea class="chatbox" rows="5" cols="8"></textarea>
+  </div>
+{% end %}

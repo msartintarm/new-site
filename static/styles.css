@@ -1,0 +1,343 @@
+body:before, body:after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+body:before {
+    top: 0;
+    background-color: #696969;
+}
+body:after {
+    bottom: 0;
+    background-color: #696969;
+}
+
+body {
+/*    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;*/
+    background-color: #111111;
+    font-family: Verdana, sans-serif;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+iframe.shader {
+    border-style: none;
+    width:32%;
+    float:left;
+    margin-right:1%;
+    margin-bottom:1%;
+    height:200px;
+}
+
+.game-options {
+    clear: both;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+}
+
+.texture-container {
+    float: left;
+    position: relative;
+}
+
+.texture-container img {
+    width:50%;
+}
+
+#config-json { display: none; }
+
+.config-holder {
+
+    -webkit-transition: all 0.9s;  
+   -moz-transition: all 0.9s;  
+   -o-transition: all 0.9s;  
+   transition: all 0.9s;  
+    overflow: auto;
+    min-width: 20%;
+    max-width: 290px;
+    margin: auto;
+    background: rgb(70, 70, 70);
+    border: solid 2px rgb(175, 175, 175);
+    border-top: none;
+    border-bottom: none;
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+    max-height: 400px;
+}
+
+.socket-button {
+    min-width: 20%;
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
+    background: rgb(70, 70, 70);
+    border: solid 2px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border-radius: 6px;
+}
+
+.draggable {
+    position: fixed;
+}
+
+div#banner{
+    width:25%;
+    float:left;
+    text-align:center;
+    padding-top:2%;
+    color: #FF0000;
+    height:300px;
+}
+
+div#header, div#footer {
+    width: 100%;
+    border-width: 3px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    border-color: #333333;
+    margin-bottom: 0px;
+    background: url('graphics/panorama.jpg') no-repeat;
+    background-color: #000000;
+    color: #123123;
+    text-align:right;
+}
+
+div#header {
+    height: 120px;
+    background-size: 105% 300%;
+    line-height:1px;
+    margin-left:8px;
+    padding-right:2px;
+}
+
+div.game_wrapper {
+    position: relative;
+    background-color: #23180d;
+    width:100%;
+    height:100%;
+    border: 10px inset #555555;
+    margin-left: -10px;
+    background: url(graphics/banner.gif) repeat-y;
+}
+
+div.display {
+    background: url('graphics/brushed_metal.jpg') repeat-y;
+    padding-top:8px;
+    width: 100%;
+}
+
+.config-piece { position: relative; }
+
+.config-piece img { width: 20px; height: 20px; }
+
+p#glcanvas_status {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight:bold;
+}
+
+div#stadium_params {
+    font-family: Helvetica, sans-serif;
+    font-variant: small-caps;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+#game_name {
+    font-size: 16px;
+}
+
+input.game_input {
+    font-family: Impact, fantasy;
+    font-variant: small-caps;
+}
+
+.text_label {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 9pt;
+    color: rgb(255, 0, 0);
+}
+
+div.square {
+    width:3px;
+    height:4px;
+    border-left-width:1px;
+    border-left-style:solid;
+    border-bottom-width:1px;
+    border-bottom-style:solid;
+    float:left;
+}
+
+.square_highlight {
+    background-color: "#4455ff";
+}
+
+.squares_highlight {
+    background-color: "#123456";
+}
+
+thead {
+    color: green;
+    cursor: default;
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    -khtml-user-select: all;
+}
+tbody { color: blue;
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    -khtml-user-select: all;
+    background-color:#234567;
+}
+
+tbody:hover {
+    text-decoration: underline;
+    color: red;
+    background-color:#123456;
+}
+
+.begin_game:hover {text-decoration: underline; }
+
+a:link {text-decoration: none;
+}
+a:visited {color: #880000; }
+a:active {color: red; }
+a:hover {text-decoration: underline; color: red; }
+
+canvas#glcanvas {
+    background:url(graphics/earth.jpg);
+    background-size:100% 100%;
+    display: none;
+}
+
+canvas#textureCanvas { float:left;display:none; }
+
+#canvas_holder {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    min-height: 300px;
+    text-align: justify;
+    background-color: #112233;
+    font-size: 23px;
+    text-align: center;
+    color: #5588dd;
+}
+
+.floating_button {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 6px;
+}
+
+#button_table {
+    text-align: center;
+    width:100%;
+    background-color: #88aabb;
+    border: 10px inset #666666;
+}
+
+div.title {
+    position: relative;
+    width:90%;
+    margin: 17px 17px;
+}
+
+input.floating, input.floating2 {
+    width:100%;
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+    font-size: inherit;
+    text-align: inherit;
+}
+
+.hidden { display:none; }
+
+input.floating { color: inherit; }
+input.floating2 { color:#abcdef; }
+
+input.floating:hover, input.floating2:hover {
+    cursor: default;
+    color:#33aabb;
+}
+
+div#footer {
+    clear:both;
+    background-size: 105% 800%;
+    height: 21px;
+    margin-left:-8px;
+    padding-right:18px;
+}
+
+
+div.one_third{
+    height:85%;
+    width:33%;
+    float:left;
+    text-align:center;
+    line-height:200%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+}
+
+.html-replace {
+     padding: 17px 20px 10px 20px;
+     position: relative;
+}
+
+.html-replace:h2 {
+    position: absolute;
+    left: 2px;
+    top: -14px;
+}
+ 
+ .html-replacestyle="background: rgba(0, 0, 0, 0.6);"
+
+.html-replace a:link { text-decoration: none; color: rgb(125, 125, 255); }
+.html-replace a:visited {color: rgb(200, 0, 0); }
+.html-replace a:active {color: rgb(255, 90, 90); }
+.html-replace a:hover {text-decoration: underline; color: rgb(255, 255, 0); }
+
+}
+
+.brake {
+    height: 1px;
+    width: 95%;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-bottom-color: rgb(102, 34, 17);
+    background-color: rgb(51, 17, 10);
+    border-top-color: rgb(19, 10, 8);
+}
+
+textarea {
+    background-color:#222222;
+    color:#dddddd;
+}
+
+textarea.shader {
+    width:100%;
+    overflow:hidden;
+}
+
+textarea.shader:hover {
+    height:500px;
+}

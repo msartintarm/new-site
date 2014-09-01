@@ -1,0 +1,37 @@
+<!-- All text on this page is property of Michael Sartin-Tarm. (c) 2013 - 2014. -->
+<!-- License is MIT, and in addition, you must give me full notice. -->
+
+<div class="game-options">
+  <div id="config-load-button" class="socket-button" data-cmd="load-config">
+    Game Config
+  </div>
+  <div id="config-container" class="config-holder" data-close="close-config"></div>
+  <div class="socket-button" id="close-config" style="display: none;">↑</div>
+
+  <div id="about-load-button" class="socket-button" data-cmd="load-about">
+    About Author
+  </div>
+  <div id="about-container" class="config-holder" data-close="close-about"></div>
+  <div class="socket-button" id="close-about" style="display: none;">↑</div>
+
+  <div id="audio-load-button" class="socket-button" data-cmd="load-audio">
+    Play Music
+  </div>
+  <div id="audio-container" class="config-holder" data-close="close-audio"></div>
+  <div class="socket-button" id="close-audio" style="display: none;">↑</div>
+</div>
+
+<div id="players-container" data-close="close-players">
+  <div id="players-load-button" class="socket-button" data-cmd="load-players">
+    Load Players
+  </div>
+  <div class="socket-button" id="close-players" style="display: none;">↑</div>
+  <div id="player-login">
+    Login:
+    <br/>
+    <textarea rows="1">Name</textarea>
+    <br/>
+    <textarea rows="1" disabled="disabled">Password (disabled)</textarea>
+    <input type="button" class="socket-value" data-cmd="player-name" value="Submit"/>
+  </div>
+</div>

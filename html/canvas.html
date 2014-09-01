@@ -1,0 +1,30 @@
+<!-- All text on this page is property of Michael Sartin-Tarm. (c) 2013 - 2014. -->
+<!-- License is MIT, and in addition, you must give me full notice. -->
+
+<!-- We use a table with 2x2 cells,
+     lumping all the links into their own cells.. -->
+<div id="canvas_holder">
+  <span id="web_gl">WebGL</span>
+  <span> And </span>
+  <span id="web_audio">Web Audio</span>
+  <span>: A Game </span>
+  <table id="button_table">
+    <thead>
+      <tr>
+        <th><u>Platformer</u></th>
+        <th></th>
+        <th><u>Metroidvania</u></th>
+        </tr>
+    </thead>
+    <tbody><tr>
+    {% for i in range(0,3) %}
+      <td>
+      {% for j in range(0,2) %}
+        <input type="button" value="Game" class="floating begin_game"/>
+       {% end %}
+      </td>
+     {% end %}
+    </tr></tbody>
+  </table>
+  <canvas id="glcanvas"></canvas>
+</div>
