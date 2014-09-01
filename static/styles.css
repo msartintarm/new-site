@@ -33,6 +33,7 @@ iframe.shader {
     height:200px;
 }
 
+/* Game Options File */
 .game-options {
     clear: both;
     position: fixed;
@@ -113,6 +114,21 @@ div#header {
     line-height:1px;
     margin-left:8px;
     padding-right:2px;
+    text-align:center;
+    line-height:200%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+}
+
+div#land_down_under { clear:both; }
+
+div#footer {
+    clear:both;
+    background-size: 105% 800%;
+    height: 21px;
+    margin-left:-8px;
+    padding-right:18px;
 }
 
 div.game_wrapper {
@@ -274,26 +290,6 @@ input.floating2 { color:#abcdef; }
 input.floating:hover, input.floating2:hover {
     cursor: default;
     color:#33aabb;
-}
-
-div#footer {
-    clear:both;
-    background-size: 105% 800%;
-    height: 21px;
-    margin-left:-8px;
-    padding-right:18px;
-}
-
-
-div.one_third{
-    height:85%;
-    width:33%;
-    float:left;
-    text-align:center;
-    line-height:200%;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
 }
 
 .html-replace {
