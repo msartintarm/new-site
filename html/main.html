@@ -14,16 +14,9 @@
     </div>
 
     <div class="game_wrapper">
-      
-      {% include 'banner.html' %}
-      {% include 'canvas.html' %}
-      {% include 'options.html' %}
+    {% include 'story.html' %}
 
       <div id="land_down_under"></div>
-
-    <!-- Put this element one tag scope higher to hide it. -->
-
-      {% include 'shaders.html' %}
 
       <div id="footer">
         <input type="button" value="(c) 2014 Tsunami Charles" class="floating" />
@@ -38,5 +31,5 @@
   </body>
 
   <!-- Monitors whether the WebGL JS has been loaded. -->
-  <script src="{{ static_url("script/execute.js") }}"></script>
+  <script src="static/script/execute.js"></script>
 </html>

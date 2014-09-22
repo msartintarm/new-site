@@ -36,12 +36,23 @@ players = PlayerPool()
 
 class TarmHandler(web.RequestHandler):
 
+	def __init__(self, arg1, arg2):
+		self.page = template.Loader('html')
+		web.RequestHandler.__init__(self, arg1, arg2);
+
 	def get(self):
 		players.addPlayer("Evilishies")
-		self.render(server_path("html/main.html"), config = level_1)
+		self.render(server_path("html/main.html"),config = level_1)
+#		self.render(server_path("html/main.html"), )
 
 	def write_error(self, code, **kwargs):
 		self.render(server_path("html/error.html"))
+
+class FallbackHandler(web.RequestHandler):
+
+	def get(self):
+		self.render(server_path("html/error.html"))
+
 
 #  websocket that sits open and intercepts incoming messages from user devices
 class TarmSocket(websocket.WebSocketHandler):
@@ -63,6 +74,8 @@ class TarmSocket(websocket.WebSocketHandler):
 			self.return_message('audio.html')
 		elif "load-players" in message:
 			self.return_message('playerInfo.html',players=players)
+		elif "load-game" in message:
+			self.return_message('game.html')
 		elif "player-name" in message:
 			players.addPlayer(message[message.find("?")+1:])
 
@@ -73,7 +86,8 @@ def start_server():
 		(r"/socket", TarmSocket),
 	    (r"/images/(.*)", web.StaticFileHandler, static_path("images")),
 	    (r"/textures/(.*)", web.StaticFileHandler, static_path("textures")),
-	    (r"/music/(.*)", web.StaticFileHandler, static_path("audio"))
+	    (r"/music/(.*)", web.StaticFileHandler, static_path("audio")),
+	    (r".*", FallbackHandler)
 	    ],
 	    debug=True, gzip=True, static_path=server_path("static"))
 
