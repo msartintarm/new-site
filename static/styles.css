@@ -20,17 +20,7 @@ body {
     -khtml-user-select: none;*/
     background-color: #111111;
     font-family: Verdana, sans-serif;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-iframe.shader {
-    border-style: none;
-    width:32%;
-    float:left;
-    margin-right:1%;
-    margin-bottom:1%;
-    height:200px;
+    height:100%;
 }
 
 /* Game Options File */
@@ -112,14 +102,76 @@ div#header {
     height: 120px;
     background-size: 105% 300%;
     line-height:1px;
-    margin-left:8px;
-    padding-right:2px;
-    text-align:center;
-    line-height:200%;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
 }
+
+div.toolbar {
+    position: fixed;
+    left: 0em;
+    top: 0em;
+    width: 6em;
+    height: 99%;
+    background-color:rgb(60, 20, 20);
+    z-index: 1;
+}
+
+div.toolbar-button, div.toolbar-profile {
+
+    /* Block size options */
+    min-height: 1.5em;
+    display: relative;
+    min-width: 6em;
+    margin: auto;
+    background-color: rgb(70, 70, 70);
+    background-color: rgba(180, 180, 180, 0.3);
+
+    /* Block color options */
+    border: solid 2px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border-radius: 0.5em;
+
+    /* Text options */
+    font-family: Helvetica, sans-serif;
+    font-variant: small-caps;
+    text-align: center;
+    font-size: 0.7em;
+    overflow: hidden;
+    color: rgb(255,255,255);
+
+
+
+}
+
+div.toolbar-dropdown-container {
+    text-align: left;
+    padding-left: 0.5em;
+    color: rgb(205,205,205);
+    overflow: hidden;
+    -webkit-transition: all ease-out 0.3s;
+   -moz-transition: all ease-out 0.3s;
+   -o-transition: all ease-out 0.3s;
+   transition: all ease-out 0.3s;
+
+}
+
+.dont-show-me { max-height: 0em; }
+
+.show-me { max-height: 6em; }
+
+.hovering-over {
+    background-color: rgb(120, 120, 120);
+    background-color: rgba(220, 220, 220, 0.3);
+}
+
+div.toolbar-dropdown {
+    height: 1.5em;
+}
+
+div.toolbar-profile { 
+    position: absolute; 
+    left:0em; 
+    bottom:0em; 
+}
+
 
 div#land_down_under { clear:both; }
 
@@ -129,6 +181,9 @@ div#footer {
     height: 21px;
     margin-left:-8px;
     padding-right:18px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
 }
 
 div.game_wrapper {
