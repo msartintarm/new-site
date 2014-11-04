@@ -26,28 +26,10 @@ var jtarm_object = {};
 		self.html_ready = false; // 'boolean'
 		self.javascript_ready = false; // 'boolean'
 
-		if (!self.html_ready) {
-
-		}
+		if (!self.html_ready) {}
 
 
 	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   jTarm.sock = new GameSocket();
 
@@ -71,6 +53,23 @@ var jtarm_object = {};
 		}
 	};
 
+	jTarm.add_element = function() {
+
+		console.log("Replacing..");
+		$("#" + $(this).attr("parent-id"))
+			.append($(this).html())
+			.each(function(){
+				console.log("Replaced.");
+			});
+
+
+	};
+
+	jTarm.replace_element = function() {
+
+		$("#" + $(this).attr("parent-id")).html($(this).html());
+	};
+
 	jTarm.construct_element = function(e) {
 
         // Convert to DOM structure, and then use DOM manipulation.
@@ -80,15 +79,19 @@ var jtarm_object = {};
             // or append to it
 
 
-            $result.find(".html-replace").each(replaceElement);
-            $result.find(".html-append").each(appendElement);
+            $result.find("tarm-replacement").each(jTarm.replace_element);
+            $result.find("tarm-addition").each(jTarm.add_element);
     	}
+    };
+
+    jTarm.send_over_socket = function() {
+
+        jTarm.sock.send($(this).attr("cmd"));
     };
 
 $( document ).ready(function() {
 
 		jTarm.sock.register_function("general", jTarm.construct_element);
-
 
 	$(".toolbar-dropdown-container").addClass("dont-show-me")
 		  // this might be moved to the view
@@ -97,7 +100,8 @@ $( document ).ready(function() {
 	$(".toolbar-dropdown")
 		.mouseenter( jTarm.enter_hover )
 		.mouseleave( jTarm.exit_hover )
-		.mousedown( jTarm.stop_click_on_parent );
+		.mousedown( jTarm.stop_click_on_parent )
+		.click( jTarm.send_over_socket );
 
 
 

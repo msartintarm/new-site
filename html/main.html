@@ -14,21 +14,42 @@
       <div class='toolbar'>
         <div class='toolbar-button'>
           Load Profile..
-          <div class="toolbar-dropdown-container">
-            <div class="toolbar-dropdown" id="profile-evilishies">evilishies</div>
-            <div class="toolbar-dropdown" id="profile-shaloobie">shaloobie</div>
+          <div class="toolbar-dropdown-container" id="toolbar-profiles">
+            <div class="toolbar-dropdown" cmd="profile-evilishies">evilishies</div>
+            <div class="toolbar-dropdown" cmd="profile-shaloobie">shaloobie</div>
           </div>
         </div>
-        <div class='toolbar-button'>
-          New Profile..
+
+        <div class="break"></div>
+
+        <div class='toolbar-button'>New Profile..
           <div class="toolbar-dropdown-container">
-          <div>Profile Name:</div>
-          <textarea rows="1" cols="8">Michael</textarea>
+          <div>
+          <div style="position:absolute;top:0.1em;left:0.1em;color:rgb(255,30,30);">Profile Name</div>
+          <textarea rows="1" cols="8" style="padding-top:1em;">Michael</textarea>
+          <div class="toolbar-dropdown" cmd="profile-create">Create</div>
+          </div>
 </div>
         </div>
+
+        <div class="break"></div>
+
         <div class='toolbar-button'>
           Post Story..
         </div>
+
+        <div class="break"></div>
+ 
+        <div class='toolbar-button'>
+          Play Music..
+          <div class="toolbar-dropdown-container" id="toolbar-profiles">
+            <div class="toolbar-dropdown" cmd="profile-evilishies">evilishies</div>
+            <div class="toolbar-dropdown" cmd="profile-shaloobie">shaloobie</div>
+          </div>
+        </div>
+
+        <div class="break"></div>
+
         <div class='toolbar-button'>
           Change Settings..
           <div class="toolbar-dropdown-container">
@@ -43,10 +64,13 @@
           </div>
 
         </div>
+
+        <div class="break"></div>
+
         <div class='toolbar-button'>About..</div>
 
 
-        <div class='toolbar-profile'>----------</div>
+        <div class='toolbar-profile' id='client-profile'>----------</div>
 
         <br style="clear:both;"/>
       </div>
@@ -61,8 +85,6 @@
         <input type="button" value="(c) 2014 Tsunami Charles" class="floating" />
         <div class="title" id="title4" > </div>
       </div>
-
-      <textarea id="config-json">{% raw config.toString() %}</textarea>
 
     </div>
     <div id="fb-root"></div>

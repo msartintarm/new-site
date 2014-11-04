@@ -1,0 +1,22 @@
+<div>
+<!--
+	<tarm-addition parent-id="client-profile">
+		evilishies
+	</tarm-addition>
+-->
+	<tarm-replacement parent-id="client-profile">
+		<div>
+		{% raw client["name"] %}
+		</div>
+		<div>
+		{% raw client["personal-title"] %}
+		</div>
+		<div>
+		Post History &#8595;&nbsp;
+		<br/>
+		</div>
+	</tarm-replacement>
+	<tarm-replacement parent-id="toolbar-profiles">
+        <div class="toolbar-dropdown" cmd="profile-shaloobie">shaloobie</div>
+    </tarm-replacement>
+</div>

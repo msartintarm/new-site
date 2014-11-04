@@ -1,2 +1,5 @@
 # Ignore compiled Python directory
 __pycache__/
+
+# Ignore Sublime text files
+*~

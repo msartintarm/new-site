@@ -153,6 +153,8 @@ div.toolbar-dropdown-container {
 
 }
 
+.break { width:90%;margin:auto;height:0.2em; }
+
 .dont-show-me { max-height: 0em; }
 
 .show-me { max-height: 6em; }

@@ -15,6 +15,13 @@ function GameSocket() {
         callback_functions[name] = func;
     }
 
+    // Structure of callback function is:
+    // function(event, html_object_sent)
+    this.send = function(message) {
+        console.log("Sending message: " + message);
+        socket.send([uri, "/", message].join(""));
+    }
+
     socket.onopen = function() {
         console.log("Socket opened.");
     };
@@ -36,28 +43,7 @@ function GameSocket() {
         console.log("Socket closed.");
     };
 
-    // Structure of callback function is:
-    // function(event, html_object_sent)
-    this.send = function(message) {
-        socket.send(message);
-    }
-
-    // Sets up a button to send a request through the socket.
-    this.setupButtons = function(button) {
-        $(button).mousedown(function() {
-            console.log("Sending message: " + $(this).data("cmd"));
-            socket.send([uri, "/", $(this).data("cmd")].join(""));
-        });
-    }
-
     this.setupValues = function(button, container) {
-        $(button).mousedown(function() {
-            console.log("Sending message: " + $(this).data("cmd"));
-            socket.send([
-                uri, "/", $(this).data("cmd"),
-                "?", container.value
-            ].join(""));
-        });
 
     }
 
