@@ -104,15 +104,19 @@ div#header {
     line-height:1px;
 }
 
-div.toolbar {
-    position: fixed;
-    left: 0em;
+div.toolbar-left, div.toolbar-right {
+    position: absolute;
     top: 0em;
     width: 6em;
     height: 99%;
     background-color:rgb(60, 20, 20);
+    background-color:rgba(45, 15, 15, 0.75);
     z-index: 1;
 }
+
+div.toolbar-left { left: 0em; }
+
+div.toolbar-right { right: 0em; }
 
 div.toolbar-button, div.toolbar-profile {
 
@@ -162,6 +166,13 @@ div.toolbar-dropdown-container {
 .hovering-over {
     background-color: rgb(120, 120, 120);
     background-color: rgba(220, 220, 220, 0.3);
+}
+
+.hovering-over-text {
+    position:relative;
+    z-index: 2;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
 }
 
 div.toolbar-dropdown {
@@ -382,8 +393,11 @@ input.floating:hover, input.floating2:hover {
 }
 
 textarea {
+    position:relative;
+    z-index:0;
     background-color:#222222;
     color:#dddddd;
+    resize: vertical;
 }
 
 textarea.shader {
@@ -394,3 +408,11 @@ textarea.shader {
 textarea.shader:hover {
     height:500px;
 }
+
+.cool-label {
+    position: absolute;
+    top: 0.1em;
+    right: 1em;
+    color: rgb(255,30,30);  
+}
+

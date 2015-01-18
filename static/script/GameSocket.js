@@ -10,9 +10,16 @@ function GameSocket() {
     var uri = "ws://" + top.location.host + "/socket";
     var socket = new WebSocket(uri);
     var callback_functions = {};
+    var more_callbacks = {};
 
+    // DOM manipulation functions (move / create object)
     this.register_function = function(name, func) {
         callback_functions[name] = func;
+    }
+
+    // Post-DOM manipulation functions (after object has been moved)
+    this.add_final_function = function(name, func) {
+        more_functions[name] = func;
     }
 
     // Structure of callback function is:
@@ -32,9 +39,21 @@ function GameSocket() {
     // Sometimes, we want a specific callback function.
     socket.onmessage = function(e) {
 
-        if (callback_functions["general"]) {
-            (callback_functions["general"])(e);
-            return;
+        // Convert to DOM structure, and then use DOM manipulation.
+        var jResult = $("<div></div>").html(e.data);
+        if (jResult) {
+            // Classname denotes whether we replace target element,
+            // or append to it
+
+            // Search for callback functions in the element.
+            // Scales quadratically with # of callback functions
+            // An alternative could be defining a well-known parent 
+            // element which can be iterated over  
+            // Which would scale linearly with # of elements
+            $.each(callback_functions, function(name, func) {
+                jResult.find(name).each(func);
+            });
+
         }
 
     };

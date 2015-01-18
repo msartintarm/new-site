@@ -51,8 +51,15 @@ class TarmSocket(websocket.WebSocketHandler):
                         self.return_message('config.html', config=level_1)
                 elif "player-name" in message:
                         players.pool.addPlayer(message[message.find("?")+1:])
-                elif "profile-" in message:
-                        client_profile = PlayerStore.get_profile(message[ message.find("-") + 1: ])
-                        self.return_message("tarm-profile.html", client=client_profile)
+                elif "add-profile-" in message:
+                        client_profile = PlayerStore().get_profile(message[ message.rfind("-") + 1: ])
+                        client_profiles = PlayerStore().get_all_profiles()
+                        self.return_message("tarm-profile.html", 
+                                client=client_profile,
+                                everyone=client_profiles)
 
+                elif "get-profile-" in message:
+                        client_profile = PlayerStore().get_profile(message[ message.find("-") + 1: ])
+                        self.return_message("tarm-profile.html", 
+                                client=client_profile)
 

@@ -1,22 +1,40 @@
 <div>
-<!--
-	<tarm-addition parent-id="client-profile">
-		evilishies
+	<tarm-addition parent-id="story-holder">
+		<tarm-story>
+		<div class="cool-label">{% raw client["personal-title"] %}</div>
+		<!--
+			<div style="width:100px;">
+				<canvas></canvas>
+			</div> 
+		-->
+
+			<div class="facebook-switch">Fb</div>
+			<div class="twitter-switch">Tw</div>
+			<div class="google-switch">Gg</div>
+
+
+			<textarea class="tarm-text">
+			This is an awesome story
+			</textarea>
+
+		</tarm-story> 	
 	</tarm-addition>
--->
+
 	<tarm-replacement parent-id="client-profile">
 		<div>
-		{% raw client["name"] %}
+			{% raw client["name"] %}
 		</div>
 		<div>
-		{% raw client["personal-title"] %}
+			{% raw client["personal-title"] %}
 		</div>
 		<div>
-		Post History &#8595;&nbsp;
-		<br/>
+			Post History &#8595;&nbsp;
+			<br/>
 		</div>
 	</tarm-replacement>
 	<tarm-replacement parent-id="toolbar-profiles">
-        <div class="toolbar-dropdown" cmd="profile-shaloobie">shaloobie</div>
-    </tarm-replacement>
+	{% for person in everyone %}
+    <div class="toolbar-dropdown" cmd="add-profile-{% raw everyone[person]["name"] %}">{% raw everyone[person]["name"] %}</div>
+	{% end %}
+	</tarm-replacement>
 </div>

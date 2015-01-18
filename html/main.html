@@ -2,93 +2,118 @@
 <!-- All text on this page is property of Michael Sartin-Tarm. (c) 2013 - 2014. -->
 <!-- License is MIT, and in addition, you must give me full notice. -->
 <html>
-  <head>
-    <meta charset="UTF-8"/>
-    <title>-- TARM --INFO --</title>
-    {% include 'head.html' %}
+<head>
+  <meta charset="UTF-8"/>
+  <title>-- TARM --INFO --</title>
+  {% include 'head.html' %}
   <!-- Monitors whether the JS and DOM have been loaded. -->
-    <script src="static/script/start.js"></script>
-  </head>
+  <script src="static/script/start.js"></script>
+</head>
 
-  <body>
-      <div class='toolbar'>
-        <div class='toolbar-button'>
-          Load Profile..
-          <div class="toolbar-dropdown-container" id="toolbar-profiles">
-            <div class="toolbar-dropdown" cmd="profile-evilishies">evilishies</div>
-            <div class="toolbar-dropdown" cmd="profile-shaloobie">shaloobie</div>
-          </div>
-        </div>
+<body>
+  <div class='toolbar-left'>
+    <div class='toolbar-button'>
+      Load Profile..
+      {% block profile-loader %}
+      <div class="toolbar-dropdown-container" id="toolbar-profiles">
+        <div class="toolbar-dropdown" cmd="add-profile-evilishies">evilishies</div>
+        <div class="toolbar-dropdown" cmd="add-profile-shaloobie">shaloobie</div>
+      </div>
+      {% end %}
+    </div>
 
-        <div class="break"></div>
+    <div class="break"></div>
 
-        <div class='toolbar-button'>New Profile..
-          <div class="toolbar-dropdown-container">
-          <div>
-          <div style="position:absolute;top:0.1em;left:0.1em;color:rgb(255,30,30);">Profile Name</div>
+    <div class='toolbar-button'>New Profile..
+      {% block profile-new %}
+      <div class="toolbar-dropdown-container">
+        <div>
+          <div class="cool-label">Profile Name</div>
           <textarea rows="1" cols="8" style="padding-top:1em;">Michael</textarea>
           <div class="toolbar-dropdown" cmd="profile-create">Create</div>
-          </div>
-</div>
         </div>
+      </div> <!-- toolbar-dropdown-container -->
+      {% end %}
+    </div> <!-- toolbar-button -->
 
-        <div class="break"></div>
+    <div class="break"></div>
 
-        <div class='toolbar-button'>
-          Post Story..
-        </div>
-
-        <div class="break"></div>
- 
-        <div class='toolbar-button'>
-          Play Music..
-          <div class="toolbar-dropdown-container" id="toolbar-profiles">
-            <div class="toolbar-dropdown" cmd="profile-evilishies">evilishies</div>
-            <div class="toolbar-dropdown" cmd="profile-shaloobie">shaloobie</div>
-          </div>
-        </div>
-
-        <div class="break"></div>
-
-        <div class='toolbar-button'>
-          Change Settings..
-          <div class="toolbar-dropdown-container">
-            <div class="toolbar-dropdown">Haha. 
-            </div>
-          <div class="toolbar-dropdown">
-            There are no
-            </div>
-          <div class="toolbar-dropdown">
- settings.
-            </div>
-          </div>
-
-        </div>
-
-        <div class="break"></div>
-
-        <div class='toolbar-button'>About..</div>
-
-
-        <div class='toolbar-profile' id='client-profile'>----------</div>
-
-        <br style="clear:both;"/>
+    <div class='toolbar-button'>
+      Post Story..
+      <div class="toolbar-dropdown-container">
+        <div class="cool-label">Describe Story</div>
+        <textarea rows="1" cols="8" style="padding-top:1em;">...</textarea>
+        <div class="toolbar-dropdown" cmd="profile-add-audio">Add Video</div>
+        <div class="toolbar-dropdown" cmd="profile-add-image">Add Image</div>
+        <div class="toolbar-dropdown" cmd="profile-add-music">Add Audio</div>
+        <div class="toolbar-dropdown" cmd="profile-add-music">Add Music</div>
+        <div class="toolbar-dropdown" cmd="profile-create">Create</div>
       </div>
-    <div id='header'></div>
+    </div> <!-- toolbar-button -->
 
-    <div class="game_wrapper">
+    <div class="break"></div>
+
+    <div class='toolbar-button'>
+      Play Music..
+      <div class="toolbar-dropdown-container">
+        <div class="toolbar-dropdown">evilishies</div>
+        <div class="toolbar-dropdown">shaloobie</div>
+      </div>
+    </div> <!-- toolbar-button -->
+
+    <div class="break"></div>
+
+    <div class='toolbar-button'>
+      Change Settings..
+      <div class="toolbar-dropdown-container">
+        <div class="toolbar-dropdown">Haha. 
+        </div>
+        <div class="toolbar-dropdown">
+          There are no
+        </div>
+        <div class="toolbar-dropdown">
+         settings.
+       </div>
+     </div> <!-- toolbar-dropdown-container -->
+
+   </div> <!-- toolbar-button -->
+
+   <div class="break"></div>
+
+   <div class='toolbar-button'>About..</div>
+
+
+   <div class='toolbar-profile' id='client-profile'>----------</div>
+
+   <br style="clear:both;"/>
+ </div>  <!-- toolbar -->
+
+<div class='toolbar-right'>
+  
+  <div class="toolbar-dropdown" cmd="profile-add-music">Add Audio</div>
+
+   <div class='toolbar-profile' id='error-messages'>----------</div>
+
+</div> <!-- toolbar-right -->
+
+ <div id='header'></div>
+
+ <div class="game_wrapper">
+
+  <tarm-story-container id="story-holder">
     {% include 'story.html' %}
+  </tarm-story-container>
 
-      <div id="land_down_under"></div>
+  <div id="land_down_under"></div>
 
-      <div id="footer">
-        <input type="button" value="(c) 2014 Tsunami Charles" class="floating" />
-        <div class="title" id="title4" > </div>
-      </div>
+  <div id="footer">
+    <input type="button" value="(c) 2014 Tsunami Charles" class="floating" />
+    <div class="title" id="title4" > </div>
+  </div>
 
-    </div>
-    <div id="fb-root"></div>
+</div>
+<div id="fb-root"></div>
 <!--    <div class="fb-like" data-href="http://msartintarm.github.io/online_game/demo.html" data-width="450" data-show-faces="true" data-send="false" colorscheme="dark"></div>-->
-  </body>
+</body>
 
 </html>

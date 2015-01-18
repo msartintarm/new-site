@@ -33,12 +33,16 @@ var jtarm_object = {};
 
   jTarm.sock = new GameSocket();
 
-	jTarm.enter_hover = function() {
-		$(this).addClass("hovering-over");
+	jTarm.enter_hover = function(name) {
+		return function() {
+			$(this).addClass(name);
+		};
 	};
 
-	jTarm.exit_hover = function() {
-		$(this).removeClass("hovering-over");
+	jTarm.exit_hover = function(name) {
+		return function() {
+			$(this).removeClass(name);
+		};
 	};
 
 	jTarm.stop_click_on_parent = function(e){
@@ -70,43 +74,48 @@ var jtarm_object = {};
 		$("#" + $(this).attr("parent-id")).html($(this).html());
 	};
 
-	jTarm.construct_element = function(e) {
-
-        // Convert to DOM structure, and then use DOM manipulation.
-        var $result = $("<div></div>").html(e.data);
-        if ($result) {
-            // Classname denotes whether we replace target element,
-            // or append to it
-
-
-            $result.find("tarm-replacement").each(jTarm.replace_element);
-            $result.find("tarm-addition").each(jTarm.add_element);
-    	}
-    };
-
     jTarm.send_over_socket = function() {
 
         jTarm.sock.send($(this).attr("cmd"));
     };
 
+
+    var elaboration_functions = {
+    	toolbar_dropdown_container: function(){
+    		$(this).addClass("dont-show-me").mousedown(jTarm.stop_click_on_parent);
+    	}
+    };
+
 $( document ).ready(function() {
 
-		jTarm.sock.register_function("general", jTarm.construct_element);
+	// Elaboration code
+
+    jTarm.sock.register_function("tarm-replacement", jTarm.replace_element);
+    jTarm.sock.register_function("tarm-addition", jTarm.add_element);
 
 	$(".toolbar-dropdown-container").addClass("dont-show-me")
 		  // this might be moved to the view
 		.mousedown( jTarm.stop_click_on_parent );
 
 	$(".toolbar-dropdown")
-		.mouseenter( jTarm.enter_hover )
-		.mouseleave( jTarm.exit_hover )
+		.mouseenter( jTarm.enter_hover("hovering-over") )
+		.mouseleave( jTarm.exit_hover("hovering-over") )
+		.mousedown( jTarm.stop_click_on_parent )
+		.click( jTarm.send_over_socket );
+
+	$("textarea")
+		.mouseenter( jTarm.enter_hover("hovering-over-text") )
+		.mouseleave( jTarm.exit_hover("hovering-over-text") )
 		.mousedown( jTarm.stop_click_on_parent )
 		.click( jTarm.send_over_socket );
 
 
-
 	$(".toolbar-button")
 		.mousedown( jTarm.toggle_shown_elements(".toolbar-dropdown-container"));
+
+	jsPlumb.draggable($("tarm-story"),
+		{containment: "parent"});
+
 });
 
 	// Search for command line args
