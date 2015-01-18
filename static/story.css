@@ -1,0 +1,91 @@
+tarm-story-container {
+
+    display: block;
+	position: relative;
+	padding: 0em 6em;
+	height: 20em;
+
+}
+
+tarm-story {
+
+    display: block;
+    position: absolute;
+    left: 15em;
+    top: 0em;
+    height: 10em;
+    width: 15em;
+	margin: auto;
+
+	background-color: rgb(200,200,200);
+
+	opacity: 0.3;
+    transition: opacity 300ms;
+
+    border: 0.1em solid rgb(155, 155, 155);
+	border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+
+    box-shadow: 2px 2px 1px #999999;
+
+}
+
+story-name {
+
+    display: block;
+    position: absolute;
+    top: 0.1em;
+    left: 1em;
+    margin: auto;
+    color: rgb(255,30,30);  
+}
+
+/*
+tarm-story:unresolved {
+    opacity: 0;
+}
+*/
+
+.tarm-text {
+	margin-top: 1.5em;
+    width: 13.5em;
+    height: 2.5em;
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 1.0;
+    z-index:10;
+    background:rgb(0,0,0);
+    color:#dddddd;
+
+}
+
+.facebook-switch, .twitter-switch, .google-switch {
+    position: absolute;
+    right: 1em;
+    height: 1.7em;
+    width: 2em;
+
+    border: 0.1em solid rgb(22, 22, 22);
+
+    box-shadow: 2px 2px 1px #000000;
+	border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+
+    font-size: 1em;
+    color: #5588dd;
+
+}
+
+.facebook-switch {
+	top:3em;
+	background-color: rgb(200,200,255);
+}
+
+.twitter-switch {
+	top:5em;
+	background-color: rgb(200,255,200);
+}
+
+.google-switch {
+	top:7em;
+	background-color: rgb(255,200,200);
+}
