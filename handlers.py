@@ -1,6 +1,5 @@
 import os.path
 from tornado import web, template, websocket
-from config import GameConfig
 from store import PlayerStore
 
 OS = os.path.dirname(__file__)
@@ -15,8 +14,6 @@ def html_path(uri):
 
 def static_path(uri):
 	return { "path": server_path("static/" + uri) }
-
-level_1 = GameConfig()
 
 class Tarm(web.RequestHandler):
 
@@ -47,9 +44,7 @@ class TarmSocket(websocket.WebSocketHandler):
 
         def on_message(self, message):
                 print("Message from browser:", message)
-                if "load-config" in message:
-                        self.return_message('config.html', config=level_1)
-                elif "player-name" in message:
+                if "player-name" in message:
                         players.pool.addPlayer(message[message.find("?")+1:])
                 elif "add-profile-" in message:
                         client_profile = PlayerStore().get_profile(message[ message.rfind("-") + 1: ])

@@ -74,6 +74,34 @@ var jtarm_object = {};
 		$("#" + $(this).attr("parent-id")).html($(this).html());
 	};
 
+	// Awesome function that controls arrow over a music element
+	jTarm.musical_arrow = function() {
+
+		var the_arrow = $(this).find(".musical-arrow");
+		var states = $(this).find(".tarm-state");
+
+		var old_element = states[0];
+
+		var move_arrow = function(){
+
+			var the_offset = $(this).offset();
+
+			the_arrow.offset({
+				top: the_offset.top,
+				left: the_offset.left - 40
+				});
+
+			$(old_element).removeClass("tarm-state-selected");
+			$(this).addClass("tarm-state-selected");
+			old_element = this;
+		};
+
+		$(states[0]).each(move_arrow);
+		$(states).mouseenter( move_arrow);
+
+	}
+
+
     jTarm.send_over_socket = function() {
 
         jTarm.sock.send($(this).attr("cmd"));
@@ -112,6 +140,9 @@ $( document ).ready(function() {
 
 	$(".toolbar-button")
 		.mousedown( jTarm.toggle_shown_elements(".toolbar-dropdown-container"));
+
+	$("tarm-story").each(jTarm.musical_arrow);
+
 
 	jsPlumb.draggable($("tarm-story"),
 		{containment: "parent"});

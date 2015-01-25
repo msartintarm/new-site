@@ -2,7 +2,7 @@ tarm-story-container {
 
     display: block;
 	position: relative;
-	padding: 0em 6em;
+	padding: 0.4em 6.4em;
 	height: 20em;
 
 }
@@ -13,31 +13,40 @@ tarm-story {
     position: absolute;
     left: 15em;
     top: 0em;
-    height: 10em;
     width: 15em;
 	margin: auto;
+    padding-top: 1.4em;
+    padding-bottom: 1em;
 
-	background-color: rgb(200,200,200);
+	background-color: rgb(150,150,150);
 
 	opacity: 0.3;
     transition: opacity 300ms;
 
-    border: 0.1em solid rgb(155, 155, 155);
+    border: 0.1em solid rgb(95,95,95);
 	border-radius: 0.3em;
 	-moz-border-radius: 0.3em;
 
-    box-shadow: 2px 2px 1px #999999;
+    box-shadow: 3px 3px 9px rgb(130,130,130);
 
 }
 
 story-name {
 
+    background:rgb(210,210,210);
     display: block;
     position: absolute;
-    top: 0.1em;
-    left: 1em;
+    top: 0.05em;
+    left: 0.05em;
+    width:14.5em;
     margin: auto;
-    color: rgb(255,30,30);  
+    border: 0.2em solid rgb(155, 155, 155);
+    border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+
+    color: rgb(255,50,40);  
+    text-shadow: 0px 0px 2px rgb(0,20,20);
+
 }
 
 /*
@@ -46,23 +55,55 @@ tarm-story:unresolved {
 }
 */
 
-.tarm-text {
-	margin-top: 1.5em;
+.tarm-state {
+
     width: 13.5em;
-    height: 2.5em;
+    height:1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 1.0;
+    z-index:10;
+    background:rgb(180,180,140);
+    color:rgb(15,15,15);
+    font-size: 0.8em;
+    border: 0.2em solid rgb(155, 155, 155);
+    border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    text-shadow: 2px 2px 2px rgb(255,255,240);
+
+}
+
+.tarm-state-selected {
+    background:rgb(240,240,240);
+}
+
+.tarm-rule {
+	margin-top: 0.1em;
+    width: 11.5em;
+    height:1.2em;
     font-family: 'Times New Roman', Times, serif;
     opacity: 1.0;
     z-index:10;
     background:rgb(0,0,0);
-    color:#dddddd;
+    color:rgb(216,216,216);
+    font-size: 0.8em;
 
 }
 
-.facebook-switch, .twitter-switch, .google-switch {
+.musical-arrow {
     position: absolute;
-    right: 1em;
-    height: 1.7em;
-    width: 2em;
+    top:0px;
+    left:0px;
+    width: 30px;
+    height:20px;
+    background-color: rgb(255,40,40);
+}
+
+.play-switch, .pause-switch, .stop-switch {
+
+    position: absolute;
+    right: 0.2em;
+    height: 1.2em;
+    width: 1.2em;
 
     border: 0.1em solid rgb(22, 22, 22);
 
@@ -70,22 +111,24 @@ tarm-story:unresolved {
 	border-radius: 0.3em;
 	-moz-border-radius: 0.3em;
 
+    text-align: center;
     font-size: 1em;
     color: #5588dd;
 
 }
 
-.facebook-switch {
-	top:3em;
-	background-color: rgb(200,200,255);
+.play-switch {
+	bottom:3.2em;
+    background-color: rgb(200,255,200);
 }
 
-.twitter-switch {
-	top:5em;
-	background-color: rgb(200,255,200);
+.pause-switch {
+	bottom:1.7em;
+    background-color: rgb(200,200,255);
+    font-weight:bolder;
 }
 
-.google-switch {
-	top:7em;
+.stop-switch {
+	bottom:0.2em;
 	background-color: rgb(255,200,200);
 }

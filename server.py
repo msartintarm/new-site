@@ -20,8 +20,13 @@ def start_server():
 	    debug=DEBUG, gzip=GZIP, static_path=handlers.server_path("static"))
 
 	httpserver.HTTPServer(tarm_app).listen(8000)
-	print("Starting server.")
+	print("Starting server...")
+
 	ioloop.IOLoop.instance().start()
+
+def stop_server():
+	print("..Stopping server.")
+	ioloop.IOLoop.current().stop()
 
 if __name__ == "__main__":
 	start_server()
